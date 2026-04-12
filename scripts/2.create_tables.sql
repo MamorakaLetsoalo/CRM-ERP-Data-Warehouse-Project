@@ -53,3 +53,12 @@ CREATE TABLE bronze.erp_loc_a101 (
     )
     GO
 
+--create customer table in the bronze layer from data source ERP
+
+CREATE TABLE bronze.erp_cust_az12 (
+    cid    NVARCHAR(50),
+    bdate  DATE,
+    gen NVARCHAR(50),
+    )
+    
+    GO
