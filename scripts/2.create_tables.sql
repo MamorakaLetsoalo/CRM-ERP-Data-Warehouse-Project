@@ -46,3 +46,10 @@ CREATE TABLE bronze.crm_sales_details (
     sls_price    INT
 );
 
+--create location table in the bronze layer from data source ERP
+CREATE TABLE bronze.erp_loc_a101 (
+    cid    NVARCHAR(50),
+    cntry  NVARCHAR(50)
+    )
+    GO
+
