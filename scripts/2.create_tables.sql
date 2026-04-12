@@ -22,3 +22,16 @@ prd_line NVARCHAR(50),
 prd_start DATE,
 prd_end_dt DATE
 )
+
+--Create sales details table in the bronze layer from data source CRM
+
+CREATE TABLE bronze.crm_sales_details(
+sls_ord_num NVARCHAR(50),
+sls_prd_key NVARCHAR(50),
+sls_cust_id INT,
+sls_ship_dt DATE,
+sls_due_dt DATE,
+sls_sales int,
+sls_quantity INT,
+sls_price INT
+)
