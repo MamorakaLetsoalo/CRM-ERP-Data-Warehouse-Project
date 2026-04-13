@@ -1,6 +1,16 @@
 USE [CRM_ERP_DataWarehouse]
+/*
+===============================================================================
+DDL Script: Create Bronze Tables
+===============================================================================
+Script Purpose:
+    This script creates tables in the 'bronze' schema, dropping existing tables 
+    if they already exist.
+	  Run this script to re-define the DDL structure of 'bronze' Tables
+===============================================================================
+*/
 
-
+--CRM TABLES
 --Load data into customer info table
 TRUNCATE TABLE [bronze].[crm_cust_info]
 BULK INSERT [bronze].[crm_cust_info]
@@ -30,6 +40,8 @@ WITH(
      FIELDTERMINATOR = ',',
      TABLOCK
      );
+
+     --ERP TABLES
 
   --Load data into customer erp info table
 TRUNCATE TABLE [bronze].[erp_cust_az12]
