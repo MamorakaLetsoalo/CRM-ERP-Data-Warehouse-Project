@@ -1,4 +1,4 @@
-USE [CRM_ERP_DataWarehouse]
+
 /*
 ===============================================================================
 DDL Script: Create Bronze Tables
@@ -10,6 +10,8 @@ Script Purpose:
 ===============================================================================
 */
 
+CREATE OR ALTER PROCEDURE bronze.load_bronze AS
+BEGIN
 --CRM TABLES
 --Load data into customer info table
 TRUNCATE TABLE [bronze].[crm_cust_info]
@@ -72,3 +74,4 @@ WITH(
      FIELDTERMINATOR = ',',
      TABLOCK
      );
+END
