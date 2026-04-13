@@ -41,4 +41,12 @@ WITH(
      TABLOCK
      );
 
-    
+    --Load data into location erp info table
+TRUNCATE TABLE [bronze].[erp_loc_a101]
+BULK INSERT [bronze].[erp_loc_a101]
+FROM 'C:\Users\Admin\Desktop\Data Engeneering Projects\CRM ERP Data warehouse project\CRM-ERP-Data-Warehouse-Project\raw_data\source ERP\LOC_A101.csv'
+WITH(
+     FIRSTROW = 2,
+     FIELDTERMINATOR = ',',
+     TABLOCK
+     );   
