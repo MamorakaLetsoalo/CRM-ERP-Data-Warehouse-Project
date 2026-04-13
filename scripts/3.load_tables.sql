@@ -49,4 +49,14 @@ WITH(
      FIRSTROW = 2,
      FIELDTERMINATOR = ',',
      TABLOCK
-     );   
+     );  
+     
+--Load data into category erp info table
+TRUNCATE TABLE [bronze].[erp_px_cat_g1v2]
+BULK INSERT [bronze].[erp_px_cat_g1v2]
+FROM 'C:\Users\Admin\Desktop\Data Engeneering Projects\CRM ERP Data warehouse project\CRM-ERP-Data-Warehouse-Project\raw_data\source ERP\PX_CAT_G1V2.csv'
+WITH(
+     FIRSTROW = 2,
+     FIELDTERMINATOR = ',',
+     TABLOCK
+     );
