@@ -34,3 +34,20 @@ WHERE flag_last =1
 SELECT cst_firstname
 FROM [bronze].[crm_cust_info]
 WHERE cst_firstname != TRIM(cst_firstname)
+
+--trim the spaces
+
+SELECT 
+cst_id,
+cst_key,
+TRIM(cst_firstname) AS cst_firstname,
+TRIM(cst_lastname) AS cst_lastname,
+cst_marital_status,
+cst_gndr,
+cst_create_date
+FROM 
+( SELECT*,
+ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date desc) AS flag_last
+FROM [bronze].[crm_cust_info]
+WHERE cst_id IS NOT NULL)t
+WHERE flag_last =1
