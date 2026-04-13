@@ -21,7 +21,7 @@ WITH(
      TABLOCK
      );
   
-  --Load data into product info table
+  --Load data into sales details info table
 TRUNCATE TABLE [bronze].[crm_sales_details]
 BULK INSERT [bronze].[crm_sales_details]
 FROM 'C:\Users\Admin\Desktop\Data Engeneering Projects\CRM ERP Data warehouse project\CRM-ERP-Data-Warehouse-Project\raw_data\source CRM\sales_details.csv'
@@ -30,3 +30,15 @@ WITH(
      FIELDTERMINATOR = ',',
      TABLOCK
      );
+
+  --Load data into customer erp info table
+TRUNCATE TABLE [bronze].[erp_cust_az12]
+BULK INSERT [bronze].[erp_cust_az12]
+FROM 'C:\Users\Admin\Desktop\Data Engeneering Projects\CRM ERP Data warehouse project\CRM-ERP-Data-Warehouse-Project\raw_data\source ERP\CUST_AZ12.csv'
+WITH(
+     FIRSTROW = 2,
+     FIELDTERMINATOR = ',',
+     TABLOCK
+     );
+
+    
