@@ -12,8 +12,12 @@ Script Purpose:
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
+
+DECLARE @start_time  DATETIME, @end_time DATETIME;
 --CRM TABLES
 --Load data into customer info table
+
+SET @start_time = GETDATE();
 TRUNCATE TABLE [bronze].[crm_cust_info]
 BULK INSERT [bronze].[crm_cust_info]
 FROM 'C:\Users\Admin\Desktop\Data Engeneering Projects\CRM ERP Data warehouse project\CRM-ERP-Data-Warehouse-Project\raw_data\source CRM\cust_info.csv'
@@ -22,8 +26,12 @@ WITH(
      FIELDTERMINATOR = ',',
      TABLOCK
      );
+SET @end_time = GETDATE()
+PRINT '>> load Duration: ' + CAST (DATEDIFF(second,@start_time,@end_time) AS NVARCHAR);
+
 
 --Load data into product info table
+
 TRUNCATE TABLE [bronze].[crm_prd_info]
 BULK INSERT [bronze].[crm_prd_info]
 FROM 'C:\Users\Admin\Desktop\Data Engeneering Projects\CRM ERP Data warehouse project\CRM-ERP-Data-Warehouse-Project\raw_data\source CRM\prd_info.csv'
