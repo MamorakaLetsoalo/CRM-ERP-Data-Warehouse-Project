@@ -27,7 +27,7 @@ WITH(
      TABLOCK
      );
 SET @end_time = GETDATE()
-PRINT '>> load Duration: ' + CAST (DATEDIFF(second,@start_time,@end_time) AS NVARCHAR);
+PRINT '>> load Duration: ' + CAST (DATEDIFF(second,@start_time,@end_time) AS NVARCHAR) + 'seconds';
 
 
 --Load data into product info table
