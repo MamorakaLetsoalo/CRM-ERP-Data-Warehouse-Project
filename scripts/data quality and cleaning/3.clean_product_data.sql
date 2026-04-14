@@ -12,7 +12,7 @@ HAVING COUNT(*) > 1
 SELECT
     prd_id,      
     prd_key,
-SUBSTRING (prd_key,1,5) AS cat_id,
+REPLACE(SUBSTRING (prd_key,1,5), '-','_') AS cat_id, --match data structure between the two tables
     prd_nm,      
     prd_cost,     
     prd_line,     
