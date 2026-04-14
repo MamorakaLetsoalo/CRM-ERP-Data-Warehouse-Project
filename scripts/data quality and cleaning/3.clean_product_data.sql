@@ -13,7 +13,8 @@ SELECT
     prd_id,      
     prd_key,
 REPLACE(SUBSTRING (prd_key,1,5), '-','_') AS cat_id, --match data structure between the two tables
-    prd_nm,      
+SUBSTRING(prd_key,7,LEN(prd_key)) AS prd_key, --specify the length of the column, product key used to join table sales details
+ prd_nm,      
     prd_cost,     
     prd_line,     
     prd_start_dt, 
