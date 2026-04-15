@@ -17,3 +17,24 @@ END AS sls_due_dt,
     sls_quantity,
     sls_price
 FROM [bronze].[crm_sales_details]
+
+--check data consistency:between sales,Quantity and price
+--sales = quantity*price
+--values must not be null,zero or negatice
+
+SELECT DISTINCT
+    sls_sales,
+    sls_quantity,
+    sls_price
+FROM [bronze].[crm_sales_details]
+WHERE sls_sales != sls_quantity * sls_price
+OR sls_sales IS NULL OR sls_quantity IS NULL OR sls_price IS NULL
+OR sls_sales <= 0 OR  sls_quantity <= 0 OR sls_price <= 0
+ORDER BY sls_sales,sls_quantity,sls_price
+
+
+--Rules:if sales is negative ,zero or null,derive it using quantity
+  -- if price is zero or null,calculate it using sales and quantity
+  --if price is negative,convrt it to a positive value
+
+
