@@ -19,7 +19,7 @@ cst_id,
 cst_key,
 cst_firstname,
 cst_lastname,
-cst_material_status,
+cst_marital_status,
 cst_gndr,
 cst_create_date)
 SELECT 
@@ -32,11 +32,11 @@ TRIM(cst_lastname) AS cst_lastname,
 CASE WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female' -- Change the gender column to use full words insead of letter,trim any spaces,use upper for the code to run on any case
 	 WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
 ELSE 'Unknown'
-END cst_gndr,
+END AS cst_gndr,
 CASE WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'Single' -- Change the marital status column to use full words insead of letter,trim any spaces,use upper for the code to run on any case
 	 WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'Married'
 ELSE 'Unknown' --Handling missing data
-END cst_marital_status,
+END AS cst_marital_status,
 cst_create_date
 FROM 
 ( SELECT*,
@@ -135,7 +135,7 @@ CASE WHEN UPPER(TRIM(gen)) IN ('F', 'FEMALE') THEN 'Female'
 FROM [bronze].[erp_cust_az12]
 
 --5.
-TRUNCATE TABLE [silver].[erp_cust_az12];
+TRUNCATE TABLE [silver].[erp_loc_az12];
 INSERT INTO [silver].[erp_loc_a101](
 cid,
 cntry
@@ -160,5 +160,6 @@ subcat,
 maintenance
 FROM [bronze].[erp_px_cat_g1v2]
 END
+
 
 
