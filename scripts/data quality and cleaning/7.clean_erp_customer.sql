@@ -25,3 +25,18 @@ CASE WHEN bdate > GETDATE() THEN NULL --if birthday is larger that current date 
 gen
 FROM [bronze].[erp_cust_az12]
 
+--data standardization and consistency
+SELECT
+CASE WHEN cid LIKE 'NAS%' THEN SUBSTRING(cid, 4 ,LEN(cid))
+     ELSE cid
+END cid,
+CASE WHEN bdate > GETDATE() THEN NULL --if birthday is larger that current date then NULL
+     ELSE bdate
+     END AS bdate,
+CASE WHEN UPPER(TRIM(gen)) IN ('F', 'FEMALE') THEN 'Female'
+     WHEN UPPER(TRIM(gen)) IN ('M', 'MALE') THEN 'Male'
+     ELSE 'Unkown'
+     END AS gen
+FROM [bronze].[erp_cust_az12]
+
+
