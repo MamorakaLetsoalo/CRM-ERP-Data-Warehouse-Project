@@ -1,3 +1,13 @@
+/* 
+script porpose : this dtored ptocedure performs the ETL process to populate the silver schema tables from bronze schema.
+Actions perforemed:
+          -truncate silver table
+          -inserts transformed and cleansed data from bronze into silver tables
+
+Prameters:None
+this stored procedure does not accept any parameters or return any values.
+*/
+
 --Create a stored procedure
 
 CREATE OR ALTER PROCEDURE silver.load_silver AS
