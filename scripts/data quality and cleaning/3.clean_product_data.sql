@@ -20,3 +20,16 @@ SUBSTRING(prd_key,7,LEN(prd_key)) AS prd_key, --specify the length of the column
     prd_start_dt, 
     prd_end_dt
 FROM [bronze].[crm_prd_info]
+
+--replace null values
+SELECT
+    prd_id,      
+    prd_key,
+REPLACE(SUBSTRING (prd_key,1,5), '-','_') AS cat_id, --match data structure between the two tables
+SUBSTRING(prd_key,7,LEN(prd_key)) AS prd_key, --specify the length of the column, product key used to join table sales details
+ prd_nm,
+ ISNULL( prd_cost,0) AS prd_cost, --replace null values with zero
+    prd_line,     
+    prd_start_dt, 
+    prd_end_dt
+FROM [bronze].[crm_prd_info]
