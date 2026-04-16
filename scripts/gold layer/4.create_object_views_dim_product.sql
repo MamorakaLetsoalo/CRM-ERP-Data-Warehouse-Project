@@ -1,5 +1,6 @@
 --Surrogate key 
 --use the surrogate key to connect to the data model
+CREATE VIEW gold.dim_products AS
 SELECT 
 ROW_NUMBER() OVER (ORDER BY pn.prd_start_dt,pn.prd_key) AS product_key,
 pn.prd_id AS product_id,
