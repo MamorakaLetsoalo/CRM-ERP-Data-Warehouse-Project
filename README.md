@@ -103,7 +103,7 @@ Designed to minimize joins on the most common query patterns ,customer performan
 └──────────────┘    └──────┬───────┘    └───────────────┘
                            │
                     ┌──────▼───────┐
-                    │ dim_geography│
+                    │ dim_location│
                     └──────────────┘
 
 
@@ -116,7 +116,7 @@ Designed to minimize joins on the most common query patterns ,customer performan
 | `dim_customers` | Dimension | Cleansed customer master from CRM |
 | `dim_products` | Dimension | Standardized product catalog from ERP |
 | `dim_dates` | Dimension | Calendar spine for time-series analysis |
-| `dim_geography` | Dimension | Region and territory hierarchy |
+| `dim_location` | Dimension | Region and territory hierarchy |
 
 <img width="858" height="499" alt="image" src="https://github.com/user-attachments/assets/d149a5e2-e2a7-4dcc-953e-5ae24a4475b7" />
 
