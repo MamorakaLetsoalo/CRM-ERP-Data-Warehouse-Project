@@ -127,7 +127,7 @@ Designed to minimize joins on the most common query patterns ,customer performan
 <img width="793" height="586" alt="image" src="https://github.com/user-attachments/assets/8aa6695e-f13a-449a-84a5-b8031a51915c" />
 
 
-## ssis ochestration
+## ssis Orchestration
 <img width="371" height="507" alt="execute_master" src="https://github.com/user-attachments/assets/e23bca29-68f6-4286-bd61-88bdf4d47259" />
 
 
